@@ -78,6 +78,7 @@ from . import (
     longformer,
     longt5,
     luke,
+    luke_japanese,
     lxmert,
     m2m_100,
     marian,

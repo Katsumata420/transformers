@@ -714,6 +714,10 @@ class BatchEncoding(UserDict):
                     #     tensor = tensor[None, :]
 
                     self[key] = tensor
+            except ValueError as e:
+                logger.error(self.items())
+                raise ValueError(e)
+            """
             except:  # noqa E722
                 if key == "overflowing_tokens":
                     raise ValueError(
@@ -724,6 +728,7 @@ class BatchEncoding(UserDict):
                     "Unable to create tensor, you should probably activate truncation and/or padding "
                     "with 'padding=True' 'truncation=True' to have batched tensors with the same length."
                 )
+            """
 
         return self
 
